@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<robot name="amphibious_screw_robot">
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.6 0.3 0.1"/>
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 0.8 1"/>
+      </material>
+    </visual>
+    <collision>
+    <geometry>
+    <box size="0.6 0.3 0.1"/>
+    </geometry>
+    </collision>
+
+    <inertial>
+    <mass value="5.0"/>
+
+<inertia ixx="0.06" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.12"/>
+    </inertial>
+  </link>
+
+
+  <link name="left_screw">
+    <visual>
+      <origin rpy="1.5708 0 1.5708" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.5" radius="0.08"/>
+      </geometry>
+      <material name="gray">
+        <color rgba="0 0.5 1.5 1"/>
+      </material>
+    </visual>
+
+        <collision>
+      <origin rpy="1.5708 0 1.5708" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.5" radius="0.08"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+    <mass value="1.5"/>
+  <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.02"/>
+  </inertial>
+  </link>
+
+
+  <joint name="left_screw_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="left_screw"/>
+    <origin xyz="0 0.2 -0.1" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+  </joint>
+
+
+  <link name="right_screw">
+    <visual>
+      <origin rpy="1.5708 0 1.5708" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.5" radius="0.08"/>
+      </geometry>
+      <material name="gray">
+      <color rgba="0 0.5 1.5 1" />
+      </material>
+    </visual>
+
+
+        <collision>
+      <origin rpy="1.5708 0 1.5708" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.5" radius="0.08"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+    <mass value="1.5"/>
+  <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.02"/>
+  </inertial>
+  </link>
+
+  <joint name="right_screw_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="right_screw"/>
+    <origin xyz="0 -0.2 -0.1" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+  </joint>
+
+</robot>
