@@ -3,3 +3,8 @@
 build
 install
 log
+
+# CMAKE STUFF FOR AUTOCOMPLETE - DO NOT TOUCH
+
+.cache
+.vscode 
