@@ -23,6 +23,12 @@ source install/setup.bash
 - `/hardware` : Contain all CAD files, electronic schematics and datasheets
 - `/src` : ROS2 source directory with all packages
 
+## Dependencies
+
+```bash
+sudo apt install  ros-jazzy-ros2-control libserial-dev
+```
+
 
 ## Team
 
