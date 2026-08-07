@@ -2,5 +2,5 @@
 
 ### Simulation
 
- - [ ] Setup Multi-Terrain Enviorment
+ - [x] Setup Multi-Terrain Enviorment
  - [ ] Setup robot urdf file and attach necessary physics 
