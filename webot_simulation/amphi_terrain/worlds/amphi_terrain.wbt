@@ -1,0 +1,115 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/UnevenTerrain.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.012553165869802513 -0.016061132106460995 -0.9997922074421783 4.955934440932182
+  position -0.18790526724092244 -1.2487061857395079 0.3838385155507586
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Robot {
+  translation -0.139417 -0.30181 0.246281
+  rotation 0.680618032056004 -0.0924105043523847 -0.7267870342304891 0.382775
+  children [
+    DEF robot_wheel_2 HingeJoint {
+      jointParameters HingeJointParameters {
+        position -1.00391e-08
+        anchor 0 -0.012 0.008
+      }
+      device [
+        RotationalMotor {
+          name "motor_2"
+        }
+      ]
+      endPoint Solid {
+        translation -1.734723475976807e-18 -8.031277552722482e-11 -1.2046922487352063e-10
+        rotation 1 0 0 0
+        children [
+          DEF Wheel_1 Pose {
+            translation 0 -0.012 0.008
+            rotation 0 1 0 1.57
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0.752941 0.109804 0.156863
+                }
+                geometry Cylinder {
+                  height 0.03
+                  radius 0.005
+                }
+              }
+            ]
+          }
+        ]
+        boundingObject USE Wheel_1
+        physics Physics {
+        }
+      }
+    }
+    DEF robot_wheel_1 HingeJoint {
+      jointParameters HingeJointParameters {
+        position -1.003907623137179e-08
+        anchor 0 0.012 0.008
+      }
+      device [
+        RotationalMotor {
+          name "motor_1"
+        }
+      ]
+      endPoint Solid {
+        translation 0 -8.031260899377113e-11 1.2046889007188977e-10
+        rotation 1 0 0 0
+        children [
+          DEF Wheel_1 Pose {
+            translation 0 0.012 0.008
+            rotation 0 1 0 1.57
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0.752941 0.109804 0.156863
+                }
+                geometry Cylinder {
+                  height 0.03
+                  radius 0.005
+                }
+              }
+            ]
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE Wheel_1
+        physics Physics {
+        }
+      }
+    }
+    DEF Robot_Body Pose {
+      translation 0 0 0.02
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.384314 0.627451 0.917647
+            roughness 0.3
+            metalness 0.5
+          }
+          geometry Box {
+            size 0.03 0.02 0.015
+          }
+        }
+      ]
+    }
+  ]
+  boundingObject USE Robot_Body
+  physics Physics {
+  }
+  controller "my_amphi"
+}
+UnevenTerrain {
+  size 1 1 0.6
+}
