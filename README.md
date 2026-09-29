@@ -26,7 +26,7 @@ source install/setup.bash
 ## Dependencies
 
 ```bash
-sudo apt install  ros-jazzy-ros2-control libserial-dev
+sudo apt install  ros-jazzy-ros2-control ros-jazzy-slam-toolbox libserial-dev
 ```
 
 
