@@ -23,6 +23,20 @@ source install/setup.bash
 - `/hardware` : Contain all CAD files, electronic schematics and datasheets
 - `/src` : ROS2 source directory with all packages
 
+## Running the simulation
+
+``` bash
+#On 1 terminal, 
+colcon build
+source install/local_setup.bash
+ros2 launch amphi_plain_sim amphi_launch.py
+
+# on terminal 2
+source install/local_setup.bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
+
+```
+
 ## Dependencies
 
 ```bash

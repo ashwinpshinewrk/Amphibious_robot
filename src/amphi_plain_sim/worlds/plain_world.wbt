@@ -1,0 +1,193 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/bathroom/protos/Toilet.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/obstacles/protos/OilBarrel.proto"
+
+WorldInfo {
+  basicTimeStep 8
+  contactProperties [
+    ContactProperties {
+      material1 "screw"
+      coulombFriction [
+        0.5
+      ]
+    }
+  ]
+}
+Viewpoint {
+  orientation 0.10479908535792347 0.1320981238678074 -0.9856811032878475 1.3554561726616403
+  position -2.0776568956154344 4.814446155255392 0.6133335345295704
+}
+DirectionalLight {
+  ambientIntensity 0.5
+  direction -0.3 -0.4 -1
+  intensity 1.2
+}
+RectangleArena {
+  translation 0 0.21 -0.15
+  floorSize 6 6
+  wallHeight 0.3
+}
+Robot {
+  translation 0.000263215789062507 -1.487733895902811e-06 -0.08273457551692834
+  rotation 0.005434029016140012 0.9999843110370319 0.0013597824989568122 0.0008969759812212752
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.75 0.75 0.78
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Mesh {
+        url [
+          "meshes/body.stl"
+        ]
+      }
+    }
+    Display {
+      name "map"
+      width 150
+      height 150
+    }
+    Lidar {
+      translation 0.112 0 0.205
+      horizontalResolution 360
+      fieldOfView 6.283185
+      verticalFieldOfView 0.1
+      numberOfLayers 1
+      near 0.05
+      minRange 0.15
+      maxRange 12
+      type "rotating"
+      noise 0.01
+      defaultFrequency 5.5
+      maxFrequency 10
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position -0.002521803097476548
+        anchor 0 -0.20263 0
+      }
+      device [
+        RotationalMotor {
+          name "left_screw_motor"
+          maxVelocity 30
+          maxTorque 20
+        }
+        PositionSensor {
+          name "left_screw_sensor"
+        }
+      ]
+      endPoint Solid {
+        translation 0 -0.20263 0
+        rotation -1 0 0 0.0025218030974859837
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.35 0.45 0.6
+              roughness 0.5
+              metalness 0.2
+            }
+            geometry Mesh {
+              url [
+                "meshes/screw_left.stl"
+              ]
+            }
+          }
+        ]
+        name "left_screw"
+        contactMaterial "screw"
+        boundingObject Pose {
+          rotation 0 1 0 1.5708
+          children [
+            Cylinder {
+              height 0.27887
+              radius 0.06796
+            }
+          ]
+        }
+        physics Physics {
+          mass 1.5
+        }
+        linearVelocity -7.751102293451753e-11 2.2428898690702128e-07 -3.271695456417911e-08
+        angularVelocity -3.314704436908617e-06 -3.273230263753202e-10 2.28217553098469e-09
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 0.002521058353555001
+        anchor 0 0.20263 0
+      }
+      device [
+        RotationalMotor {
+          name "right_screw_motor"
+          maxVelocity 30
+          maxTorque 20
+        }
+        PositionSensor {
+          name "right_screw_sensor"
+        }
+      ]
+      endPoint Solid {
+        translation 0 0.20263 0
+        rotation 1 0 0 0.0025210583535769195
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.35 0.45 0.6
+              roughness 0.5
+              metalness 0.2
+            }
+            geometry Mesh {
+              url [
+                "meshes/screw_right.stl"
+              ]
+            }
+          }
+        ]
+        name "right_screw"
+        contactMaterial "screw"
+        boundingObject Pose {
+          rotation 0 1 0 1.5708
+          children [
+            Cylinder {
+              height 0.27887
+              radius 0.06796
+            }
+          ]
+        }
+        physics Physics {
+          mass 1.5
+        }
+        linearVelocity 3.4155356538671126e-11 2.2428998304187963e-07 3.8346864480813106e-08
+        angularVelocity -3.3147284962387327e-06 -3.1073239403480677e-10 2.282197116228473e-09
+      }
+    }
+  ]
+  name "screw_vehicle"
+  boundingObject Pose {
+    translation 0.0445 -0.0005 -0.001
+    children [
+      Box {
+        size 0.361 0.21 0.0946
+      }
+    ]
+  }
+  physics Physics {
+    mass 4
+  }
+  controller "<extern>"
+  supervisor TRUE
+  linearVelocity -2.187390435464197e-11 2.2319683603618757e-07 -7.663454368849176e-10
+  angularVelocity 1.7963478609645347e-07 -1.5907370924883236e-10 -8.826039366969611e-10
+}
+TexturedBackground {
+}
+Toilet {
+  translation -1.7 -0.75 -0.16
+}
+OilBarrel {
+  translation 0.53 1.18 0.29
+}

@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<robot name="AmphiBot">
+    <webots>
+        <plugin type="amphi_plain_sim.amphi_sim_plain_driver.PlainDriver" />
+    </webots>
+</robot>
