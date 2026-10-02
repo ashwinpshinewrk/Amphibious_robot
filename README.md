@@ -40,7 +40,7 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ## Dependencies
 
 ```bash
-sudo apt install  ros-jazzy-ros2-control ros-jazzy-slam-toolbox libserial-dev
+sudo apt install  ros-jazzy-ros2-control ros2-jazzy-webots-ros2 ros-jazzy-slam-toolbox libserial-dev
 ```
 
 
